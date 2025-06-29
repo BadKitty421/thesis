@@ -54,7 +54,7 @@ def load_model(model_path, r=16):
     load_lora = True
     # model = UNetGNRes()
     model_type = "vit_t"
-    model_base = sam_model_registry[model_type](checkpoint="/home/hnw452/rootpainter_src/trainer/weights/tinysam.pth")
+    model_base = sam_model_registry[model_type](checkpoint="/./rootpainter_src/trainer/weights/tinysam.pth")
     if load_lora:
         print("load lora with rank", r)
         model = LoRATinySAM(sam_model=model_base, rank=r)
@@ -88,7 +88,7 @@ def create_first_model_with_random_weights(model_dir, r=16):
     model_name += '_' + str(int(round(time.time()))) + '.pkl'
     # model = UNetGNRes()
     model_type = "vit_t"
-    model_base = sam_model_registry[model_type](checkpoint="/home/hnw452/rootpainter_src/trainer/weights/tinysam.pth")
+    model_base = sam_model_registry[model_type](checkpoint="/./rootpainter_src/trainer/weights/tinysam.pth")
     if load_lora:
         print("crate first model with lora rank", r)
         model = LoRATinySAM(sam_model=model_base, rank=r)
